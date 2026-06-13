@@ -27,7 +27,9 @@
                 @endif
                 <div>
                     <div style="font-weight: 600;">{{ optional($artikel->penulis)->nama_depan }} {{ optional($artikel->penulis)->nama_belakang }}</div>
-                    <div style="font-size: 0.8rem; color: #64748b;">Penulis</div>
+                    <div style="font-size: 0.8rem; color: #64748b;">
+                        {{ $artikel->hari_tanggal ?? '-' }}
+                    </div>
                 </div>
             </div>
 
