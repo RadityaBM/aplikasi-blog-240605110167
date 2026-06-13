@@ -4,7 +4,20 @@
 <div class="row g-4">
 
     <div class="col-lg-8" id="artikel-terbaru">
-        <h2 class="section-title"><span>Artikel Terbaru</span></h2>
+
+        {{-- Breadcrumb (muncul hanya saat filter kategori) --}}
+        @if(isset($kategori_aktif))
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('home') }}">Beranda</a></li>
+                <li class="breadcrumb-item active">{{ $kategori_aktif->nama_kategori }}</li>
+            </ol>
+        </nav>
+        @endif
+
+        <h2 class="section-title">
+            <span>{{ isset($kategori_aktif) ? $kategori_aktif->nama_kategori : 'Artikel Terbaru' }}</span>
+        </h2>
 
         @if($artikel->isEmpty())
         <div class="alert alert-info border-0 rounded-3">Belum ada artikel yang tersedia.</div>
@@ -14,7 +27,7 @@
             @if($item->gambar)
             <img src="{{ asset('storage/gambar/' . $item->gambar) }}"
                 alt="{{ $item->judul }}"
-                style="width: 100%; height: 200px !important; object-fit: cover !important; border-top-left-radius: 16px; border-top-right-radius: 16px;">
+                style="width: 100%; height: 350px !important; object-fit: cover !important; border-top-left-radius: 16px; border-top-right-radius: 16px;">
             @endif
             <div class="p-4">
                 <span class="badge-kategori">{{ optional($item->kategori)->nama_kategori ?? 'Tanpa Kategori' }}</span>

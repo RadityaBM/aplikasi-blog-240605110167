@@ -41,6 +41,7 @@ class PenulisController extends Controller
         Penulis::create([
             'nama_depan'    => $request->nama_depan,
             'nama_belakang' => $request->nama_belakang,
+            'user_name'     => strtolower($request->nama_depan . $request->nama_belakang), // <-- TAMBAHKAN BARIS INI
             'email'         => $request->email,
             'password'      => bcrypt($request->password),
             'foto'          => $namaFoto,
