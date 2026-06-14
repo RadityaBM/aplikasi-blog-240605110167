@@ -48,9 +48,14 @@
                             {{ strtoupper(substr(optional($item->penulis)->nama_depan ?? 'P', 0, 1)) }}
                         </div>
                         @endif
-                        <span style="font-size: 0.88rem; font-weight: 600; color: #374151;">
-                            {{ trim((optional($item->penulis)->nama_depan ?? '') . ' ' . (optional($item->penulis)->nama_belakang ?? '')) ?: 'Penulis' }}
-                        </span>
+                        <div>
+                            <span style="font-size: 0.88rem; font-weight: 600; color: #374151;">
+                                {{ trim((optional($item->penulis)->nama_depan ?? '') . ' ' . (optional($item->penulis)->nama_belakang ?? '')) ?: 'Penulis' }}
+                            </span>
+                            @if($item->hari_tanggal)
+                            <span style="font-size: 0.82rem; color: #64748b;"> • {{ $item->hari_tanggal }}</span>
+                            @endif
+                        </div>
                     </div>
                     <a href="{{ route('artikel.show', $item->id) }}" class="btn-baca">Baca Selengkapnya →</a>
                 </div>

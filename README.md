@@ -76,4 +76,4 @@ DB_PASSWORD=
 10. Buka browser dan akses `http://localhost:8000`
 
 ## Demonstrasi Video
-[Segera ditambahkan]
+https://youtu.be/6F5pJLt_33s
